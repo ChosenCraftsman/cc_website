@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chosen Craftsman — Custom Woodworking</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <img src="images/logo.png" alt="Chosen Craftsman">
+    <span>Chosen Craftsman</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#portfolio">Work</a></li>
+    <li><a href="#intake">Start a Project</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <img src="images/logo.png" alt="Chosen Craftsman logo" class="hero-logo">
+  <h1>Chosen Craftsman</h1>
+  <p>Faith-driven custom woodworking — built with purpose, designed to endure.</p>
+  <a href="#intake" class="hero-cta">Request a Consultation</a>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <h2 class="section-title">About</h2>
+  <div class="section-rule"></div>
+  <p class="section-subtitle">Handcrafted work rooted in faith, built with integrity, and made to last generations.</p>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>Chosen Craftsman is a custom woodworking studio dedicated to creating pieces that carry meaning. Every joint, every surface, every design decision reflects a commitment to excellence and an understanding that what we build with our hands can serve something greater than ourselves.</p>
+      <p>From heirloom furniture to church installations, each project begins with a conversation — about purpose, about story, about what this piece needs to be for the people who will live with it.</p>
+    </div>
+    <ul class="about-values">
+      <li>
+        <div class="value-icon">✝</div>
+        <div>
+          <div class="value-label">Faith-Centered</div>
+          <div class="value-desc">Every project is approached as an act of stewardship — building with the gifts we've been given.</div>
+        </div>
+      </li>
+      <li>
+        <div class="value-icon">◆</div>
+        <div>
+          <div class="value-label">Built to Last</div>
+          <div class="value-desc">Heirloom construction methods and honest materials that stand the test of time.</div>
+        </div>
+      </li>
+      <li>
+        <div class="value-icon">▣</div>
+        <div>
+          <div class="value-label">Custom by Nature</div>
+          <div class="value-desc">No templates. Each piece is designed around your specific space, needs, and story.</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+  <h2 class="section-title">Our Work</h2>
+  <div class="section-rule"></div>
+  <p class="section-subtitle">A selection of recent commissions and personal projects.</p>
+  <div class="carousel-wrap">
+    <div class="carousel" id="carousel">
+      <div class="carousel-card">
+        <div class="card-img" style="background:linear-gradient(135deg, #5a3a1e 0%, #3B2415 100%)">Your Image</div>
+        <div class="card-body">
+          <h3>Custom Dining Table</h3>
+          <p>Solid walnut dining table with hand-cut joinery, built for a family of six. Designed to anchor the room.</p>
+          <span class="card-tag">Furniture</span>
+        </div>
+      </div>
+      <div class="carousel-card">
+        <div class="card-img" style="background:linear-gradient(135deg, #4A5C7A 0%, #2e3d54 100%)">Your Image</div>
+        <div class="card-body">
+          <h3>Church Pulpit</h3>
+          <p>Commissioned oak pulpit with carved cross detail. Designed for presence and reverence.</p>
+          <span class="card-tag">Ecclesiastical</span>
+        </div>
+      </div>
+      <div class="carousel-card">
+        <div class="card-img" style="background:linear-gradient(135deg, #6B4226 0%, #3B2415 100%)">Your Image</div>
+        <div class="card-body">
+          <h3>Built-In Cabinetry</h3>
+          <p>Floor-to-ceiling white oak cabinetry with integrated lighting and soft-close hardware.</p>
+          <span class="card-tag">Cabinetry</span>
+        </div>
+      </div>
+      <div class="carousel-card">
+        <div class="card-img" style="background:linear-gradient(135deg, #8B7355 0%, #5a4a32 100%)">Your Image</div>
+        <div class="card-body">
+          <h3>Heirloom Keepsake Box</h3>
+          <p>Hand-dovetailed cherry box with brass inlay. Commissioned as a family baptism gift.</p>
+          <span class="card-tag">Specialty</span>
+        </div>
+      </div>
+      <div class="carousel-card">
+        <div class="card-img" style="background:linear-gradient(135deg, #3d5a3a 0%, #2a3d28 100%)">Your Image</div>
+        <div class="card-body">
+          <h3>Executive Desk</h3>
+          <p>Walnut and steel executive desk with integrated cable management. Built for daily use.</p>
+          <span class="card-tag">Furniture</span>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-nav">
+      <button class="carousel-btn" id="prevBtn">&#8592;</button>
+      <button class="carousel-btn" id="nextBtn">&#8594;</button>
+    </div>
+  </div>
+</section>
+
+<!-- INTAKE FORM -->
+<section class="intake" id="intake">
+  <h2 class="section-title">Start a Project</h2>
+  <div class="section-rule"></div>
+  <p class="section-subtitle">Tell us about your vision. We'll follow up within 48 hours.</p>
+  <div class="form-container">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" placeholder="John" required>
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" placeholder="Smith" required>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="john@example.com" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" placeholder="(555) 123-4567">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="projectType">Project Type</label>
+      <select id="projectType">
+        <option value="" disabled selected>Select a category</option>
+        <option>Custom Furniture</option>
+        <option>Cabinetry & Built-Ins</option>
+        <option>Church / Ecclesiastical</option>
+        <option>Specialty & Gifts</option>
+        <option>Repair & Restoration</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="budget">Estimated Budget</label>
+      <select id="budget">
+        <option value="" disabled selected>Select a range</option>
+        <option>Under $1,000</option>
+        <option>$1,000 – $3,000</option>
+        <option>$3,000 – $7,500</option>
+        <option>$7,500 – $15,000</option>
+        <option>$15,000+</option>
+        <option>Not sure yet</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="timeline">Desired Timeline</label>
+      <select id="timeline">
+        <option value="" disabled selected>When do you need this?</option>
+        <option>Within 1 month</option>
+        <option>1 – 3 months</option>
+        <option>3 – 6 months</option>
+        <option>6+ months / Flexible</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="description">Project Description</label>
+      <textarea id="description" placeholder="Tell us about your project — dimensions, materials, inspiration, how the piece will be used..."></textarea>
+    </div>
+    <div class="form-group">
+      <label for="referral">How did you hear about us?</label>
+      <input type="text" id="referral" placeholder="Referral, social media, church, etc.">
+    </div>
+    <button type="button" class="form-submit" id="submitBtn">Submit Request</button>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <h2 class="section-title">Get in Touch</h2>
+  <div class="section-rule"></div>
+  <div class="contact-grid">
+    <div class="contact-item">
+      <h4>Phone</h4>
+      <p><a href="tel:+15551234567">(555) 123-4567</a></p>
+    </div>
+    <div class="contact-item">
+      <h4>Email</h4>
+      <p><a href="mailto:info@chosencraftsman.com">info@chosencraftsman.com</a></p>
+    </div>
+    <div class="contact-item">
+      <h4>Location</h4>
+      <p>Omaha, Nebraska<br>By appointment only</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="images/logo.png" alt="Chosen Craftsman">
+  <p>&copy; 2026 Chosen Craftsman. All rights reserved.</p>
+</footer>
+
+<script>
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Mobile menu
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    navLinks.classList.remove('open');
+  }));
+
+  // Carousel
+  const carousel = document.getElementById('carousel');
+  const scrollAmt = 360;
+  document.getElementById('prevBtn').addEventListener('click', () => {
+    carousel.scrollBy({ left: -scrollAmt, behavior: 'smooth' });
+  });
+  document.getElementById('nextBtn').addEventListener('click', () => {
+    carousel.scrollBy({ left: scrollAmt, behavior: 'smooth' });
+  });
+
+  // Form submit
+  document.getElementById('submitBtn').addEventListener('click', () => {
+    const fn = document.getElementById('firstName').value.trim();
+    const ln = document.getElementById('lastName').value.trim();
+    const em = document.getElementById('email').value.trim();
+    if (!fn || !ln || !em) {
+      alert('Please fill in your name and email.');
+      return;
+    }
+    alert('Thank you, ' + fn + '! Your request has been submitted. We\'ll be in touch within 48 hours.');
+  });
+</script>
+</body>
+</html>
