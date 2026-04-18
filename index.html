@@ -190,6 +190,12 @@
       <label for="referral">How did you hear about us?</label>
       <input type="text" id="referral" placeholder="Referral, social media, church, etc.">
     </div>
+    <!-- Honeypot — hidden from real users, bots fill it -->
+    <!-- aria-hidden keeps it out of screen readers; tabindex prevents accidental tab-focus -->
+    <div class="form-group" aria-hidden="true" style="display:none;">
+      <label for="website">Leave this blank</label>
+      <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+    </div>
     <button type="button" class="form-submit" id="submitBtn">Submit Request</button>
   </div>
 </section>
@@ -248,16 +254,83 @@
     carousel.scrollBy({ left: scrollAmt, behavior: 'smooth' });
   });
 
-  // Form submit
-  document.getElementById('submitBtn').addEventListener('click', () => {
-    const fn = document.getElementById('firstName').value.trim();
-    const ln = document.getElementById('lastName').value.trim();
-    const em = document.getElementById('email').value.trim();
-    if (!fn || !ln || !em) {
-      alert('Please fill in your name and email.');
+  // ── Form submit ───────────────────────────────────────────────
+  // Paste your deployed Apps Script /exec URL here.
+  // Never use the /dev URL in production — it requires auth.
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw6QL5oqUwwWQZO9aSK8Dalrg4WbnEgYbWBHf1HswMbFls7pWLtBGOnKOZz5JJ484yf/exec';
+  
+  document.getElementById('submitBtn').addEventListener('click', async () => {
+    const btn = document.getElementById('submitBtn');
+
+    // ── Field reads ──────────────────────────────────────────────
+    const firstName   = document.getElementById('firstName').value.trim();
+    const lastName    = document.getElementById('lastName').value.trim();
+    const email       = document.getElementById('email').value.trim();
+    const phone       = document.getElementById('phone').value.trim();
+    const projectType = document.getElementById('projectType').value;
+    const budget      = document.getElementById('budget').value;
+    const timeline    = document.getElementById('timeline').value;
+    const description = document.getElementById('description').value.trim();
+    const referral    = document.getElementById('referral').value.trim();
+    const honeypot    = document.getElementById('website').value;  // Should stay empty
+
+    // ── Client-side validation ───────────────────────────────────
+    if (!firstName || !lastName || !email) {
+      alert('Please fill in your name and email before submitting.');
       return;
     }
-    alert('Thank you, ' + fn + '! Your request has been submitted. We\'ll be in touch within 48 hours.');
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    // ── Loading state ────────────────────────────────────────────
+    btn.disabled    = true;
+    btn.textContent = 'Sending…';
+
+    // ── Payload ──────────────────────────────────────────────────
+    const payload = {
+      formType:    'projectIntake',
+      name:        firstName + ' ' + lastName,
+      email:       email,
+      phone:       phone,
+      projectType: projectType,
+      budget:      budget,
+      timeline:    timeline,
+      description: description,
+      hearAbout:   referral,
+      website:     honeypot,  // Honeypot — empty for real users
+    };
+
+    // ── Submit ───────────────────────────────────────────────────
+    // mode: 'no-cors' means the response will be opaque — we can't
+    // read the body back. Treat network resolve as success.
+    try {
+      await fetch(APPS_SCRIPT_URL, {
+        method:  'POST',
+        mode:    'no-cors',
+        headers: { 'Content-Type': 'text/plain' },
+        body:    JSON.stringify(payload),
+      });
+
+      // Reset form and confirm
+      btn.textContent = 'Request Submitted';
+      ['firstName','lastName','email','phone','description','referral'].forEach(id => {
+        document.getElementById(id).value = '';
+      });
+      ['projectType','budget','timeline'].forEach(id => {
+        document.getElementById(id).selectedIndex = 0;
+      });
+
+      alert('Thank you, ' + firstName + '. Your inquiry has been received. Expect a personal response within 48 hours.');
+
+    } catch (err) {
+      // Network failure — Apps Script itself being unreachable
+      btn.disabled    = false;
+      btn.textContent = 'Submit Request';
+      alert('Something went wrong with the connection. Please try again or email us directly at chosencraftsman@gmail.com.');
+    }
   });
 </script>
 </body>
